@@ -76,6 +76,12 @@ section {
 	color: white;
 	text-decoration: none;
 }
+input[type="submit"] {
+	padding: 10px 25px;
+	border: none;
+	background-color: #9898ff;
+	color: white;
+}
 input[type="email"], input[type="password"], input[type="text"] {
 	margin: 0 0 10px 0;
 	font-size: 18px;
@@ -238,6 +244,22 @@ nav .current {
 	background-color: rgba(0, 0, 0, 0.5);
 	border: 1px solid #9898ff;
 	border-radius: 5px;
+}
+.alert {
+	border-radius: 5px;
+	padding: 10px 20px;
+	width: 90%;
+	background-color: #333377;
+	color: white;
+	text-align: center;
+	margin: 0 auto;
+	display: none;
+}
+.alert-error {
+	background-color: #a22222;
+}
+.alert-ok {
+	background-color: #005000;
 }
 
 

@@ -7,6 +7,7 @@
 	<meta name="keywords" content="stackoverflow-lite, questions, answers">
 	<meta name="author" content="Bruce Allan Makaaru">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<script src="js/questions.js"></script>
 	<title>StackOverflow-lite | Question</title>
 </head>
 <body>
@@ -35,6 +36,9 @@
 
 	<!-- MAIN CONTENT -->
 	<section class="main-content spacing-large">
+
+		<div id="alert-msg" class="alert alert-error"></div>
+
 		<div class="vessel">
 			<div class="section-heading">&bull; Sample Clicked Question: Cake donut topping halvah candy canes candy toffee jelly-o. Fruitcake carrot cake brownie lollipop powder?</div>
 					
@@ -100,5 +104,9 @@
 			<p>StackOverflow-lite by Bruce Allan Makaaru</p>
 		</div>
 	</footer>
+
+	<script>
+		window.onload = getQuestions(4);
+	</script>
 </body>
 </html>
