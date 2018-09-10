@@ -12,20 +12,22 @@ let getQuestions = (questionId=0) => {
     // TODO change to proper route after testing
     let url = 'https://stackoverflow-lite-abm.herokuapp.com/api/v1/questions';
     if(questionId > 0)
-        url += '/' + questionId;
+        url += '/' + questionId; 
 
     fetch(url, {
         method: 'GET',
-        mode: 'no-cors',
         headers: {
-            'Content-type': 'application/json; charset=utf-8'
+                'Content-type': 'application/json'
             }
         })
-        .then((response) => response.json)
+        .then((response) => {
+            console.log(response);
+            console.log(response.json);
+            return response.json;
+        })
         .then((data) => console.log(JSON.stringify(data)))
         .catch((error) => showAlert(error))
 };
-
 
 // let postQuestion = () => {
 //
