@@ -10,7 +10,7 @@ let showAlert = (error_msg) => {
 // get a specific question OR all
 let getQuestions = (questionId=0) => {
     // TODO change to proper route after testing
-    let url = 'https://stackoverflow-lite-abm.herokuapp.com/api/v1/questions';
+    let url = "https://stackoverflow-lite-abm.herokuapp.com/api/v1/questions";
     if(questionId > 0)
         url += '/' + questionId; 
 
@@ -20,11 +20,7 @@ let getQuestions = (questionId=0) => {
                 'Content-type': 'application/json'
             }
         })
-        .then((response) => {
-            console.log(response);
-            console.log(response.json);
-            return response.json;
-        })
+        .then((response) => response.json())
         .then((data) => console.log(JSON.stringify(data)))
         .catch((error) => showAlert(error))
 };
