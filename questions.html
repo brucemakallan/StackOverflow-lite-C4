@@ -7,6 +7,7 @@
 	<meta name="keywords" content="stackoverflow-lite, questions, answers">
 	<meta name="author" content="Bruce Allan Makaaru">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<script src="js/questions.js"></script>
 	<title>StackOverflow-lite | Questions</title>
 </head>
 <body>
@@ -39,6 +40,8 @@
 			<form>
 				<input type="text" name="query" placeholder="Search Questions" class="block">
 			</form>
+
+			<div id="alert-msg" class="alert"></div>
 
 			<div class="section-heading">Recent Questions</div>
 
@@ -83,9 +86,9 @@
 			</div>
 
 			<div>
-				<form>
-					<textarea class="tx_question" name="tx_question" placeholder="Ask your own Question here"></textarea><br>
-					<button class="submit-bt"><a href="questions.html">Post Question</a></button>
+				<form id="new_question_form">
+					<textarea class="tx_question" id="tx_question" name="tx_question" placeholder="Ask your own Question here"></textarea><br>
+					<input type="submit" value="Post Question">
 				</form>
 			</div>
 		</div>
@@ -97,5 +100,10 @@
 			<p>StackOverflow-lite by Bruce Allan Makaaru</p>
 		</div>
 	</footer>
+
+	<script>
+		document.getElementById('new_question_form').addEventListener('submit', postQuestion);
+		window.onload = getQuestions();
+	</script>
 </body>
 </html>
