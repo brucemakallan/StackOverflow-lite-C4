@@ -25,7 +25,18 @@ let getQuestions = (questionId=0) => {
             if(jsonStr.includes("status_code"))  // response with "status_code" = something went wrong
                 showAlert(data.status_code);
             else if(jsonStr.includes('"id":')) {  // sucessful request
-                console.log(jsonStr);
+                // console.log(jsonStr);
+                let output = "";
+                data.forEach(element => {
+                    output += `
+                        <div class="question-entry">
+                            <div class="question">
+                                &bull; <a href="question.html?id=${element.id}">${element.question}</a>
+                            </div>
+                            <div class="font-13">Date Posted: ${element.date_posted.split('.')[0]}</div> 
+                        </div>`;
+                });
+                document.getElementById('elements').innerHTML = output;
             }
         })
         .catch((error) => showAlert(error))
@@ -53,11 +64,11 @@ let postQuestion = (e) => {
         .then((response) => response.json())
         .then((data) => {
             let jsonStr = JSON.stringify(data);
-            // console.log(jsonStr);
             if(jsonStr.includes("status_code"))  // response with "status_code" = something went wrong
                 showAlert(data.status_code);
             else if(jsonStr.includes('"id":')) {  // sucessful request
                 showAlert("Your question was posted");
+                window.location.replace("../questions.html");
             }
         })
         .catch((error) => showAlert(error))
