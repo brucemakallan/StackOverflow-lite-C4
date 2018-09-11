@@ -7,11 +7,12 @@
 	<meta name="keywords" content="stackoverflow-lite, questions, answers">
 	<meta name="author" content="Bruce Allan Makaaru">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<script src="js/users.js"></script>
 	<title>StackOverflow-lite</title>
 </head>
 <body>
 	<!-- HEADER with Nav -->
-	<header class="spacing-small">
+	<header class="spacing-small">		
 		<div class="vessel">
 			<div class="columns">
 				<div class="col col-half">
@@ -35,6 +36,9 @@
 
 	<!-- BANNER -->
 	<section class="banner spacing-large">
+		
+		<div id="alert-msg" class="alert"></div>
+
 		<div class="vessel">
 			<div class="columns">
 				<div class="col col-twothirds">
@@ -42,14 +46,14 @@
 					<p>StackOverflow-lite is a platform where people can ask questions and provide answers.</p>
 				</div>
 				<div class="col col-third">
-					<form class="login-form padding al-right">
+					<form id="login_form" class="login-form padding al-right">
 						<div class="label al-left">Email</div>
 						<input type="email" id="email" name="email" class="block" required="required">
 
 						<div class="label al-left">Password</div>
 						<input type="password" id="password" name="password" class="block" required="required">
 
-						<button class="submit-bt al-right"><a href="questions.html">Login</a></button>
+						<input type="submit" class="al-right" value="Login">
 					</form>	
 				</div>
 			</div>
@@ -147,5 +151,9 @@
 			<p>StackOverflow-lite by Bruce Allan Makaaru</p>
 		</div>
 	</footer>
+
+	<script>
+		document.getElementById('login_form').addEventListener('submit', login);
+	</script>
 </body>
 </html>

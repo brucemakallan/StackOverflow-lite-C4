@@ -9,8 +9,7 @@ let showAlert = (error_msg) => {
 
 // get a specific question OR all
 let getQuestions = (questionId=0) => {
-    // TODO change to proper route after testing
-    let url = "https://stackoverflow-lite-abm.herokuapp.com/api/v1/questions";
+    let url = "https://stackoverflow-lite3-abm.herokuapp.com/api/v1/questions";
     if(questionId > 0)
         url += '/' + questionId; 
 
