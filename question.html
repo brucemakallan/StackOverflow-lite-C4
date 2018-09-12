@@ -8,6 +8,7 @@
 	<meta name="author" content="Bruce Allan Makaaru">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<script src="js/questions.js"></script>
+	<script src="js/answers.js"></script>
 	<title>StackOverflow-lite | Question</title>
 </head>
 <body>
@@ -37,59 +38,22 @@
 	<!-- MAIN CONTENT -->
 	<section class="main-content spacing-large">
 
-		<div id="alert-msg" class="alert alert-error"></div>
+		<div id="alert-msg" class="alert"></div>
 
 		<div class="vessel">
-			<div class="section-heading">&bull; Sample Clicked Question: Cake donut topping halvah candy canes candy toffee jelly-o. Fruitcake carrot cake brownie lollipop powder?</div>
-					
-			<div class="date"><img src="img/clock.png" class="icon-smallest" /> <i>12th August 2018</i></div>
+			<div id="question_selected"></div>
 
 			<div class="question-entry">
-				<h3 class="margin-0">Answers (3)</h3>
+				<h3 class="margin-0">Answers</h3>
 				
-				<!-- answer 1 -->
-				<div class="answer-entry">
-					<div class="answer">Powder dessert cake. Gummies sugar plum tart chupa chups lemon drops. Cheesecake dragée biscuit marzipan.</div>
-					<div class="options margin-t">
-						<a href="#"><img class="icon-small margin-r" src="img/thumbs-up.png" alt="Up-vote" title="Up-vote"></a> 
-						<a href="#"><img class="icon-small margin-r" src="img/thumbs-down.png" alt="Down-vote" title="Down-vote"></a> 
-						<span class="votes">11 Votes</span> 
-						<img src="img/clock.png" class="icon-smallest margin-l" /> <i>12th August 2018</i>
-						<a href="#" class="circle-link-red">Delete</a>
-						<a href="#" class="circle-link-green">Accept</a>
-					</div>
-				</div>
-				
-				<!-- answer 2 -->
-				<div class="answer-entry">
-					<div class="answer">Fruitcake sugar plum pudding cake lollipop chocolate bar dragée candy. Fruitcake wafer pie. Sesame snaps chupa chups jelly beans lemon drops lemon drops cake bonbon cookie. Lemon drops topping cake gummies gummies pastry caramels icing.</div>
-					<div class="options margin-t">
-						<a href="#"><img class="icon-small margin-r" src="img/thumbs-up.png" alt="Up-vote" title="Up-vote"></a> 
-						<a href="#"><img class="icon-small margin-r" src="img/thumbs-down.png" alt="Down-vote" title="Down-vote"></a> 
-						<span class="votes">5 Votes</span> 
-						<img src="img/clock.png" class="icon-smallest margin-l" /> <i>19th August 2018</i>
-						<a href="#" class="circle-link-red">Delete</a>
-						<a href="#" class="circle-link-green">Accept</a>
-					</div>
-				</div>
-				
-				<!-- answer -->
-				<div class="answer-entry">
-					<div class="answer">Deliver dessert cake. Gummies sugar plum tart chupa chups lemon drops. Cheesecake dragée biscuit marzipan.</div>
-					<div class="options margin-t">
-						<a href="#"><img class="icon-small margin-r" src="img/thumbs-up.png" alt="Up-vote" title="Up-vote"></a> 
-						<a href="#"><img class="icon-small margin-r" src="img/thumbs-down.png" alt="Down-vote" title="Down-vote"></a> 
-						<span class="votes">2 Votes</span>
-						<img src="img/clock.png" class="icon-smallest margin-l" /> <i>17th August 2018</i> 
-						<a href="#" class="circle-link-red">Delete</a>
-						<a href="#" class="circle-link-green">Accept</a>
-					</div>
-				</div>
+				<!-- answers to the question -->
+				<div id="answers_list"></div>
 
+				<!-- Post new answer -->
 				<div>
-					<form>
-						<textarea class="tx_answer" name="tx_answer" placeholder="Type your answer here"></textarea><br>
-						<button class="submit-bt"><a href="questions.html">Post Answer</a></button>
+					<form id="answer_form">
+						<textarea class="tx_answer" id="tx_answer" name="tx_answer" placeholder="Type your answer here"></textarea><br>
+						<input type="submit" value="Post Answer">
 					</form>
 				</div>
 			</div>
@@ -106,7 +70,8 @@
 	</footer>
 
 	<script>
-		window.onload = getQuestions(4);
+		window.onload = getOneQuestion(localStorage.getItem("question_id"));
+		document.getElementById('answer_form').addEventListener('submit', postAnswer);
 	</script>
 </body>
 </html>
