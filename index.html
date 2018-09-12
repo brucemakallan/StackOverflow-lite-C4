@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<meta name="description" content="StackOverflow-lite is a platform where people can ask questions and provide answers">
+	<meta name="keywords" content="stackoverflow-lite, questions, answers">
+	<meta name="author" content="Bruce Allan Makaaru">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<script src="js/users.js"></script>
+	<title>StackOverflow-lite</title>
+</head>
+<body>
+	<!-- HEADER with Nav -->
+	<header class="spacing-small">		
+		<div class="vessel">
+			<div class="columns">
+				<div class="col col-half">
+					<div class="brand">
+						<span class="primary-color">StackOverflow</span>-lite
+					</div>
+				</div>
+				<div class="col col-half al-right">
+					<nav>
+						<ul>
+							<li><a href="index.html" class="current">Home</a></li>
+							<li><a href="questions.html">Questions</a></li>
+							<li><a href="profile.html">Profile</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</header>
+
+
+	<!-- BANNER -->
+	<section class="banner spacing-large">
+		
+		<div id="alert-msg" class="alert"></div>
+
+		<div class="vessel">
+			<div class="columns">
+				<div class="col col-twothirds">
+					<h1>StackOverflow-lite</h1>
+					<p>StackOverflow-lite is a platform where people can ask questions and provide answers.</p>
+				</div>
+				<div class="col col-third">
+					<form id="login_form" class="login-form padding al-right">
+						<div class="label al-left">Email</div>
+						<input type="email" id="email" name="email" class="block" required="required">
+
+						<div class="label al-left">Password</div>
+						<input type="password" id="password" name="password" class="block" required="required">
+
+						<input type="submit" class="al-right" value="Login">
+					</form>	
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- Join Us -->
+	<section class="joinus spacing-small">
+		<div class="vessel al-center">
+			<p>
+				Wish to be a part of our community? 
+				<a class="block-link margin-lr" href="signup.html">Signup</a>
+			</p>			
+		</div>
+	</section>
+
+
+	<!-- SERVICES -->
+	<section class="services spacing-large">
+		<div class="vessel">
+			<div class="columns al-center">
+				<div class="col col-third">
+					<div><img src="img/q-mark.jpg" class="icon"></div>
+					<h3 class="primary-color-dark">Ask a Question</h3>
+					<p>Post a question and get answers from a wide community</p>
+				</div>
+				<div class="col col-third">
+					<div><img src="img/e-mark.jpg" class="icon"></div>
+					<h3 class="primary-color-dark">Answer a Question</h3>
+					<p>Post your very own answers to questions</p>
+				</div>
+				<div class="col col-third">
+					<div><img src="img/vote.jpg" class="icon"></div>
+					<h3 class="primary-color-dark">Vote on answers</h3>
+					<p>Up-vote or Down-vote an answer</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer>
+		<div class="vessel">
+			<p>StackOverflow-lite by Bruce Allan Makaaru</p>
+		</div>
+	</footer>
+
+	<script>
+		document.getElementById('login_form').addEventListener('submit', login);
+	</script>
+</body>
+</html>
