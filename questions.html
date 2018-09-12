@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<meta name="description" content="StackOverflow-lite is a platform where people can ask questions and provide answers">
+	<meta name="keywords" content="stackoverflow-lite, questions, answers">
+	<meta name="author" content="Bruce Allan Makaaru">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<script src="js/questions.js"></script>
+	<title>StackOverflow-lite | Questions</title>
+</head>
+<body>
+	<!-- HEADER with Nav -->
+	<header class="spacing-small">
+		<div class="vessel">
+			<div class="columns">
+				<div class="col col-half">
+					<div class="brand">
+						<span class="primary-color">StackOverflow</span>-lite
+					</div>
+				</div>
+				<div class="col col-half al-right">
+					<nav>
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="questions.html" class="current">Questions</a></li>
+							<li><a href="profile.html">Profile</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</header>
+
+
+	<!-- MAIN CONTENT -->
+	<section class="main-content spacing-large">
+		<div class="vessel">
+			<div id="alert-msg" class="alert"></div>
+
+			<div class="section-heading">Questions</div>
+
+			<!-- Load elements -->
+			<div id="elements"></div>
+
+			<div>
+				<form id="new_question_form">
+					<textarea class="tx_question" id="tx_question" name="tx_question" placeholder="Ask your own Question here"></textarea><br>
+					<input type="submit" value="Post Question">
+				</form>
+			</div>
+		</div>
+	</section>
+
+
+	<footer>
+		<div class="vessel">
+			<p>StackOverflow-lite by Bruce Allan Makaaru</p>
+		</div>
+	</footer>
+
+	<script>
+		document.getElementById('new_question_form').addEventListener('submit', postQuestion);
+		window.onload = getQuestions();
+	</script>
+</body>
+</html>
