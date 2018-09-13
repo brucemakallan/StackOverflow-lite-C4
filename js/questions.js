@@ -1,21 +1,34 @@
 /**
- * Show alerts to users
-*/
-let showAlert = (msg) => {
-    let alertDiv = document.getElementById('alert-msg');
-    alertDiv.style.display = "block";
-    alertDiv.innerHTML = msg;  // show error message in alert box
-    setTimeout(() => alertDiv.style.display = "none", 7000);  // remove alert message after a while
-};
-
-
-/**
  * save the question id for referencing
  */
 let setQuestionId = (questionId) => {
     localStorage.setItem("question_id", questionId);
-    console.log('qn id = ' + questionId);
 };
+
+
+/**
+ * save the answer id for referencing
+ */
+let setAnswer = (answerId) => {
+    localStorage.setItem("answer_id", answerId);
+    fetch(`https://stackoverflow-lite3-abm.herokuapp.com/api/v1/questions/${localStorage.getItem("question_id")}/answers`, {
+        method: 'GET',
+        headers: {
+                'Content-type': 'application/json',
+                'Authorization': 'Bearer ' + localStorage.getItem("access_token")
+            }
+    })
+    .then((response) => response.json())
+    .then((data) => {
+        data.forEach(element => {
+            if(element.id == answerId) {
+                localStorage.setItem("answer_details", element.answer);
+                window.location.replace('../edit.html');
+            }
+        });
+    })
+    .catch((error) => showAlert(error))
+}
 
 
 /**
@@ -187,6 +200,7 @@ let getOneQuestion = (questionId) => {
                 data.answers.forEach(element => {
                     answers_output += `
                         <div class="answer-entry">
+                            <div class="edit"><a href="#" onclick="setAnswer(${element.id});"><img class="icon-small" title="Edit" src="../img/pencil.png" /></a></div>
                             <div class="answer">${element.answer}</div>
                             <div>Accepted: <b>${element.accepted}</b></div>
                             <div class="options margin-t">

@@ -8,9 +8,8 @@
 	<meta name="author" content="Bruce Allan Makaaru">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<script src="js/base.js"></script>
-	<script src="js/questions.js"></script>
 	<script src="js/answers.js"></script>
-	<title>StackOverflow-lite | Question</title>
+	<title>StackOverflow-lite | Answer</title>
 </head>
 <body>
 	<!-- HEADER with Nav -->
@@ -42,24 +41,17 @@
 		<div id="alert-msg" class="alert"></div>
 
 		<div class="vessel">
-			<div id="question_selected"></div>
-
 			<div class="question-entry">
-				<h3 class="margin-0">Answers</h3>
+				<h3 class="margin-0">Edit Answer</h3>
 				
-				<!-- answers to the question -->
-				<div id="answers_list"></div>
-
-				<!-- Post new answer -->
+				<!-- Edit answer -->
 				<div>
 					<form id="answer_form">
 						<textarea class="tx_answer" id="tx_answer" name="tx_answer" placeholder="Type your answer here"></textarea><br>
-						<input type="submit" value="Post Answer">
+						<input type="submit" value="Edit Answer">
 					</form>
 				</div>
 			</div>
-						
-			<a href="questions.html">&lt; Back to Questions</a>
 		</div>
 	</section>
 
@@ -71,8 +63,8 @@
 	</footer>
 
 	<script>
-		window.onload = getOneQuestion(localStorage.getItem("question_id"));
-		document.getElementById('answer_form').addEventListener('submit', postAnswer);
+		document.getElementById('answer_form').addEventListener('submit', editAnswer);
+		window.onload = getAnswer();
 	</script>
 </body>
 </html>

@@ -135,6 +135,9 @@ textarea {
 	color: red;
 	font-size: 20px;
 }
+.edit {
+	float: right;
+}
 .block {
 	width: 97%;
 }
