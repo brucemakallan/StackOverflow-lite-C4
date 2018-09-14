@@ -22,11 +22,23 @@ h1 {
 .m-left {
 	margin-left: 25px;
 }
+.m-right {
+	margin-right: 15px;
+}
 .m-top {
 	margin-top: 20px;
 }
+.remove {
+	display: none;
+}
 .primary-color {
 	color: #9898ff;
+}
+.light-red {
+	color: #f77777;
+}
+.green-bg {
+	background-color: #77ff77 !important;
 }
 .primary-color-dark {
 	color: #333388;
@@ -68,6 +80,9 @@ section {
 }
 .al-right {
 	text-align: right;
+}
+.fl-right {
+	float: right;
 }
 .al-center {
 	text-align: center;
@@ -134,6 +149,9 @@ textarea {
 	float: right;
 	color: red;
 	font-size: 20px;
+}
+.edit {
+	float: right;
 }
 .block {
 	width: 97%;
@@ -212,7 +230,7 @@ header {
 	text-transform: uppercase;
 }
 nav ul {
-	margin: 0;
+	margin: 0 0 10px 0;
 	padding: 0;
 }
 nav li {
@@ -311,15 +329,9 @@ nav .current {
 	padding: 10px;
 	margin: 20px 0;
 }
-.answer {
-
-}
 .votes {
 	font-size: 18px;
 	color: blue;
-}
-.options {
-
 }
 .font-20 {
 	font-size: 20px;
