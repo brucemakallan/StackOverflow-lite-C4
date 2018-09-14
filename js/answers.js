@@ -2,6 +2,7 @@
  * Get answer and show it before editing
  */
 let getAnswer = () => {
+    setUsername();
     document.getElementById('tx_answer').innerHTML = localStorage.getItem("answer_details");
 }
 

@@ -103,9 +103,10 @@ let acceptAnswer = (answerId) => {
 
 
 /**
- * get a specific question OR all
+ * get all questions
  */
 let getQuestions = () => {
+    setUsername();  // set greeting
     fetch("https://stackoverflow-lite3-abm.herokuapp.com/api/v1/questions", { 
         method: 'GET',
         headers: {
@@ -174,6 +175,7 @@ let postQuestion = (e) => {
  * Get a specific quetion with all its answers
  */
 let getOneQuestion = (questionId) => {
+    setUsername();
     fetch(`https://stackoverflow-lite3-abm.herokuapp.com/api/v1/questions/${questionId}`, {
         method: 'GET',
         headers: {
@@ -198,8 +200,14 @@ let getOneQuestion = (questionId) => {
             if(data.answers != undefined) {
                 let answers_output = '';
                 data.answers.forEach(element => {
+                    let answer_styling = "";
+                    let display = "";
+                    if(element.accepted) {
+                        answer_styling = "green-bg";
+                        display = "remove";
+                    }
                     answers_output += `
-                        <div class="answer-entry">
+                        <div class="answer-entry ${answer_styling}">
                             <div class="edit"><a href="#" onclick="setAnswer(${element.id});"><img class="icon-small" title="Edit" src="../img/pencil.png" /></a></div>
                             <div class="answer">${element.answer}</div>
                             <div>Accepted: <b>${element.accepted}</b></div>
@@ -208,7 +216,7 @@ let getOneQuestion = (questionId) => {
                                 <a href="#" onclick="setVote(${element.id}, false);"><img class="icon-small margin-r" src="img/thumbs-down.png" alt="Down-vote" title="Down-vote"></a> 
                                 <span class="votes">${element.votes} Votes</span> 
                                 <img src="img/clock.png" class="icon-smallest margin-l" /> <i>${element.date_posted}</i>
-                                <a href="#" onclick="acceptAnswer(${element.id});" class="circle-link-green">Accept</a>
+                                <a href="#" onclick="acceptAnswer(${element.id});" class="circle-link-green ${display}">Accept</a>
                             </div>
                         </div>`;
                 });
