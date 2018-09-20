@@ -9,8 +9,8 @@
 	<meta name="author" content="Bruce Allan Makaaru">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<script src="js/base.js"></script>
-	<script src="js/questions.js"></script>
-	<title>StackOverflow-lite | Questions</title>
+	<script src="js/answers.js"></script>
+	<title>StackOverflow-lite | Answer</title>
 </head>
 
 <body>
@@ -40,19 +40,20 @@
 
 	<!-- MAIN CONTENT -->
 	<section class="main-content spacing-large">
+
+		<div id="alert-msg" class="alert"></div>
+
 		<div class="vessel">
-			<div id="alert-msg" class="alert"></div>
+			<div class="question-entry">
+				<h3 class="margin-0">Edit Answer</h3>
 
-			<div class="section-heading">Questions</div>
-
-			<!-- Load elements -->
-			<div id="elements"></div>
-
-			<div>
-				<form id="new_question_form">
-					<textarea class="tx_question" id="tx_question" name="tx_question" placeholder="Ask your own Question here"></textarea><br>
-					<input type="submit" value="Post Question">
-				</form>
+				<!-- Edit answer -->
+				<div>
+					<form id="answer_form">
+						<textarea class="tx_answer" id="tx_answer" name="tx_answer" placeholder="Type your answer here"></textarea><br>
+						<input type="submit" value="Edit Answer">
+					</form>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -60,13 +61,13 @@
 
 	<footer>
 		<div class="vessel">
-			<p>StackOverflow-lite by Bruce Allan Makaaru</p>
+			<p>StackOverflow-lite by Bruce Allan Makaaru.</p>
 		</div>
 	</footer>
 
 	<script>
-		document.getElementById('new_question_form').addEventListener('submit', postQuestion);
-		window.onload = getQuestions();
+		document.getElementById('answer_form').addEventListener('submit', editAnswer);
+		window.onload = getAnswer();
 	</script>
 </body>
 

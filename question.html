@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
@@ -7,10 +8,12 @@
 	<meta name="keywords" content="stackoverflow-lite, questions, answers">
 	<meta name="author" content="Bruce Allan Makaaru">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<script src="js/base.js"></script>
 	<script src="js/questions.js"></script>
 	<script src="js/answers.js"></script>
 	<title>StackOverflow-lite | Question</title>
 </head>
+
 <body>
 	<!-- HEADER with Nav -->
 	<header class="spacing-small">
@@ -26,9 +29,10 @@
 						<ul>
 							<li><a href="index.html">Home</a></li>
 							<li><a href="questions.html" class="current">Questions</a></li>
-							<li><a href="profile.html">Profile</a></li>
 						</ul>
 					</nav>
+					<span id="greeting" class="m-right m-top primary-color"></span>
+					<a id="logout" class="al-right m-right light-red" href="#" onclick="logout();">Logout</a>
 				</div>
 			</div>
 		</div>
@@ -45,7 +49,7 @@
 
 			<div class="question-entry">
 				<h3 class="margin-0">Answers</h3>
-				
+
 				<!-- answers to the question -->
 				<div id="answers_list"></div>
 
@@ -57,7 +61,7 @@
 					</form>
 				</div>
 			</div>
-						
+
 			<a href="questions.html">&lt; Back to Questions</a>
 		</div>
 	</section>
@@ -74,4 +78,5 @@
 		document.getElementById('answer_form').addEventListener('submit', postAnswer);
 	</script>
 </body>
+
 </html>

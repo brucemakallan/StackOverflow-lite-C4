@@ -1,11 +1,4 @@
-let showAlert = (msg) => {
-    let alertDiv = document.getElementById('alert-msg');
-    alertDiv.style.display = "block";
-    alertDiv.innerHTML = msg;  // show error message in alert box
-    setTimeout(() => alertDiv.style.display = "none", 7000);  // remove alert message after a while
-};
-
-
+// Register a new User
 let signUp = (e) => {
     e.preventDefault();  // prevent it from saving to a file
 
@@ -38,7 +31,7 @@ let signUp = (e) => {
                 // Using HTML5 web storage
                 if (typeof(Storage) !== "undefined") {
                     localStorage.setItem("access_token", data.access_token);
-                    localStorage.setItem("user_id", data.id);
+                    localStorage.setItem("full_name", data.full_name);
                     window.location.replace("../questions.html");
                 } else 
                     showAlert("No Support for Web Storage");
@@ -74,7 +67,7 @@ let login = (e) => {
             else if(jsonStr.includes("access_token")) {  // sucessful request
                 if (typeof(Storage) !== "undefined") {  // Using HTML5 web storage
                     localStorage.setItem("access_token", data.access_token);
-                    localStorage.setItem("user_id", data.id);
+                    localStorage.setItem("full_name", data.full_name);
                     window.location.replace("../questions.html");
                 } else 
                     showAlert("No Support for Web Storage");
